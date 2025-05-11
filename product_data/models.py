@@ -1,0 +1,35 @@
+from django.db import models
+
+# Create your models here.
+class Product(models.Model):
+    id = models.CharField(max_length=255, primary_key=True)
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    link = models.URLField()
+    image_link = models.URLField()
+    availability = models.CharField(max_length=100)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    condition = models.CharField(max_length=100)
+    brand = models.CharField(max_length=255)
+    gtin = models.CharField(max_length=255)
+    # recommended fields
+    sale_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    item_group_id = models.CharField(max_length=255, null=True, blank=True)
+    google_product_category = models.CharField(max_length=255, null=True, blank=True)
+    product_type = models.CharField(max_length=255, null=True, blank=True)
+    shipping = models.CharField(max_length=255, null=True, blank=True)
+    additional_image_links = models.TextField(null=True, blank=True)
+    size = models.CharField(max_length=50, null=True, blank=True)
+    color = models.CharField(max_length=50, null=True, blank=True)
+    material = models.CharField(max_length=50, null=True, blank=True)
+    pattern = models.CharField(max_length=50, null=True, blank=True)
+    gender = models.CharField(max_length=50, null=True, blank=True)
+    model = models.CharField(max_length=100, null=True, blank=True)
+    # Optional fields
+    product_length = models.FloatField(null=True, blank=True)
+    product_width = models.FloatField(null=True, blank=True)
+    product_height = models.FloatField(null=True, blank=True)
+    product_weight = models.FloatField(null=True, blank=True)
+    lifestyle_image_link = models.URLField(null=True, blank=True)
+    max_handling_time = models.IntegerField(null=True, blank=True)
+    is_bundle = models.BooleanField(null=True, blank=True)
